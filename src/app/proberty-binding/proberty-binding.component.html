@@ -1,0 +1,7 @@
+<p>proberty-binding works!</p>
+<input type="text" [id]="ids" />
+<!-- <button [disabled]="isDisabled" > Disable</button> -->
+
+<!-- Note that interpolation like this {{}} didn't be worked with boolen type it will be always true
+  although you change value to false -->
+<button disabled="{{isDisabled}}" >Click me</button>

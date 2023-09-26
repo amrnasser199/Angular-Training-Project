@@ -1,0 +1,4 @@
+<p>departments works!</p>
+<div *ngFor="let dept of departments"[class.isSelected]="CheckPrevDeptIdwithCurrent(dept)" (click)="sendDeptid(dept)">
+  {{dept.id}} {{dept.name}}
+</div>

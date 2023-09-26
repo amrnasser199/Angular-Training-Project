@@ -1,0 +1,14 @@
+<p>ng-if-structure-directive works!</p>
+
+<h2 *ngIf="isactive">Welcome hossam</h2>
+<h2 *ngIf="false">Welcome ali</h2>
+
+<h2 *ngIf="isloggedin; then firstOne; else secondone"></h2>
+
+<ng-template  #firstOne >
+
+<h2>Welcome amr</h2>
+</ng-template>
+<ng-template  #secondone >
+  Welcome {{txtname}}
+</ng-template>
