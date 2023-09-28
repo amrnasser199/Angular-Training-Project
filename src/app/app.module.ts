@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -32,6 +33,9 @@ import { OverviewComponent } from './Child Route Components/overview/overview.co
 import { ContactComponent } from './Child Route Components/contact/contact.component';
 import { TdfComponent } from './tdf/tdf.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { MatDialogExampleComponent } from './mat-dialog-example/mat-dialog-example.component';
 
 @NgModule({
   declarations: [
@@ -63,14 +67,18 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
     ContactComponent,
     TdfComponent,
     ReactiveFormsComponent,
+    MatDialogExampleComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

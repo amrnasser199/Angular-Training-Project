@@ -1,0 +1,16 @@
+$kids-typography: mat.define-typography-config(
+  $font-family: "Comic Sans",
+);
+
+$my-theme: mat.define-light-theme(
+  (
+    typography: $kids-typography,
+    color: (
+      primary: mat.define-palette($primary-palette, 600),
+      accent: mat.define-palette($primary-palette, 200),
+    )
+  )
+);
+
+@include mat.core-theme($my-theme);
+@include mat.button-theme($my-theme);

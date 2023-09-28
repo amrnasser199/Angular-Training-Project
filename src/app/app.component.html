@@ -1,3 +1,6 @@
+<!-- Angular Basics Starts from Here -->
+
+
 <!-- <app-header></app-header>
 <app-home></app-home>
 <app-footer></app-footer>
@@ -38,9 +41,350 @@
   <!-- <app-tdf></app-tdf> -->
 
     <!-- 2- Reactive Forms -->
-<app-reactive-forms></app-reactive-forms>
+<!-- <app-reactive-forms></app-reactive-forms> -->
 
 
 
 
+  <!-- Angular Material Design Starts From Here -->
 
+  <br/>
+
+<div>Typography</div>
+<div class="mat-display-4">This Is Display 4</div>
+<div class="mat-display-3">This Is Display 3</div>
+<div class="mat-display-2">This Is Display 2</div>
+<div class="mat-display-1">This Is Display 1</div>
+<div class="mat-headLine">This Is Headline</div>
+<div class="mat-body-1">This Is Body 1</div>
+<div class="mat-body-2">This Is Body 2</div>
+<div class="mat-title">This Is Title </div>
+<div class="mat-caption">This Is Caption</div>
+<br/>
+
+<div>Buttons</div>
+<div>
+<button mat-button>helloworld</button>
+<button mat-raised-button>helloworld</button>
+<button mat-flat-button>helloworld</button>
+<button mat-stroked-button>helloworld</button>
+
+</div>
+<div>
+  <button mat-icon-button style="margin-right: 10%;" >Icon</button>
+  <button mat-fab style="margin-right: 10%;">Fab</button>
+  <button mat-mini-fab>Mini Fab</button>
+
+
+  </div>
+  <div>
+    <button color="primary" mat-button>primary</button>
+    <button color="accent" mat-button>accent</button>
+    <button color="warn" mat-button disableRipple>warn</button>
+
+  </div>
+<div>
+  <br/>
+
+  <mat-button-toggle #buttontoggle checked disableRipple disabled> toggle button</mat-button-toggle>
+  {{buttontoggle.checked}}
+</div>
+<div>
+  <mat-button-toggle-group #togglegroup="matButtonToggleGroup" multiple>
+
+    <mat-button-toggle value="Angular"> Angular</mat-button-toggle>
+    <mat-button-toggle value="React"> React</mat-button-toggle>
+    <mat-button-toggle value="VueJs"> VueJs</mat-button-toggle>
+
+  </mat-button-toggle-group>
+  {{togglegroup.value}}
+</div>
+<br/>
+
+<div>
+  <mat-icon color="primary">input   </mat-icon>
+
+  <mat-icon color="warn">block   </mat-icon>
+  <mat-icon color="accent">content_cut </mat-icon>
+</div>
+<br/>
+
+<div>
+  <span [matBadge]="notification" matBadgeColor="primary" [matBadgeHidden]="notification===0" matBadgeSize="small" matBadgeOverlap="false" >Notifications</span>
+</div>
+<div>
+  <span matBadge="10" matBadgeColor="accent" matBadgePosition="below after" matBadgeSize="small" matBadgeOverlap="false" >Notifications</span>
+</div>
+<div>
+  <div>
+    <span matBadge="10" matBadgeColor="warn" matBadgePosition="above before" matBadgeSize="medium" matBadgeOverlap="false" >Notifications</span>
+  </div>
+  <span matBadge="10" matBadgeColor="accent" matBadgePosition="below before" matBadgeSize="large" matBadgeOverlap="false" >Notifications</span>
+</div>
+<br/>
+
+<mat-progress-spinner value="50"></mat-progress-spinner>
+<mat-spinner *ngIf="showSpinner;"></mat-spinner>
+<button (click)="ShowspinnerMethod()">show spinner</button>
+<br/>
+<mat-toolbar color="primary" class="navbar">
+<div>Programmer Hero</div>
+<div>
+  <span>Home</span>
+  <span>Services</span>
+  <span>About us</span>
+  <span>Contact</span>
+</div>
+</mat-toolbar>
+<br/>
+<!-- there are 3 types of sidenav mode
+1-over (Default) take full screen
+2-push the data behind nav bar will be shown behind navbar
+3-side (most used) the navbar will be shown in the left as common -->
+ <mat-sidenav-container >
+  <mat-sidenav #sidenav mode="side" (opened)="showNavData('opened')" (closed)="showNavData('closed')" [(opened)]="opened">Hero programmer</mat-sidenav>
+  <mat-sidenav-content>Main
+    <button (click)="opened=!opened">Click Toggle</button>
+    <button (click)="sidenav.open()">open</button>
+    <button (click)="sidenav.close()">close</button>
+    <button (click)="sidenav.toggle()">toggle</button>
+
+  </mat-sidenav-content>
+ </mat-sidenav-container>
+<br/>
+<mat-menu #MainMenu="matMenu" xPosition="after" yPosition="below">
+  <button mat-menu-item [mat-menu-trigger-for]="submenu">Frontend</button>
+  <button mat-menu-item>Backend</button>
+
+</mat-menu>
+<mat-menu #submenu>
+
+  <button mat-menu-item>Angular</button>
+  <button mat-menu-item>React</button>
+  <button mat-menu-item>VueJs</button>
+
+</mat-menu>
+<button class="center" mat-flat-button [mat-menu-trigger-for]="MainMenu">Menu</button>
+
+<br/>
+<mat-list>
+  <mat-list-item>Item 1</mat-list-item>
+  <mat-list-item>Item 2</mat-list-item>
+  <mat-list-item>Item 3</mat-list-item>
+
+</mat-list>
+<mat-nav-list>
+  <a mat-list-item href="#">Home</a>
+  <a mat-list-item href="#">About us</a>
+  <a mat-list-item href="#">Services</a>
+
+</mat-nav-list>
+<mat-list>
+  <mat-list-item>
+    <mat-icon matListItemIcon>home</mat-icon>
+<h3>Heading</h3>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <mat-icon matListItemIcon>folder</mat-icon>
+<h3>folder</h3>
+  </mat-list-item>
+</mat-list>
+
+<br/>
+
+<!-- mat-grid-list must have cols otherwise it will not work
+rowHeight="2:1" means the column height 1/2 width
+gutterSize means spaces between tiles
+colspan="2" means this tile take 2 columns
+rowspan="2" means this tile take 2 Rows
+
+-->
+
+<mat-grid-list cols="2" rowHeight="2:1" gutterSize="10px">
+  <mat-grid-tile colspan="2" > Tile 1</mat-grid-tile>
+  <mat-grid-tile rowspan="2" > Tile 2</mat-grid-tile>
+  <mat-grid-tile > Tile 3</mat-grid-tile>
+  <mat-grid-tile > Tile 4</mat-grid-tile>
+
+</mat-grid-list>
+<br/>
+<mat-accordion multi="true" hideToggle="">
+<mat-expansion-panel>
+<mat-expansion-panel-header>
+  <mat-panel-title> Hero Programmer</mat-panel-title>
+  <mat-panel-description>This Is Angular Material Desin with panel</mat-panel-description>
+</mat-expansion-panel-header>
+<p> This Is Full Angular course where you can angular and vecome super hero</p>
+<mat-action-row>
+  <button mat-flat-button>Subscribe</button>
+</mat-action-row>
+</mat-expansion-panel>
+
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title> Hero Programmer</mat-panel-title>
+    <mat-panel-description>This Is Angular Material Desin with panel</mat-panel-description>
+  </mat-expansion-panel-header>
+  <p> This Is Full Angular course where you can angular and vecome super hero</p>
+  <mat-action-row>
+    <button mat-flat-button>Subscribe</button>
+  </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+  <br/>
+<mat-card>
+  <mat-card-header> Title</mat-card-header>
+  <mat-card-content>Description of Card</mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-flat-button>Login</button>
+  </mat-card-actions>
+</mat-card>
+<br/>
+<mat-tab-group #selectedTab (selectedTabChange)="DefineCurrentTab(selectedTab.selectedIndex)">
+  <mat-tab label="Angular"> This is Angular content</mat-tab>
+  <mat-tab label="React"> This is React content</mat-tab>
+  <mat-tab label="VueJs"> This is VueJs content</mat-tab>
+</mat-tab-group>
+<!-- {{selectedTab.selectedIndex}} -->
+<br/>
+<!-- optional means you can skip this stage and go the next one
+to disable the other stages and be on the first stage use linear
+to click on button to go to the next stage add matStepperNext
+to click on button to go to the Previous stage add matStepperPrevious -->
+
+<mat-horizontal-stepper linear>
+<mat-step Label="Shipping Address" completed="false">
+<p>this is shipping Address</p>
+</mat-step>
+<mat-step Label="Billing Address" completed="false" optional>
+<p>This is Billing Address</p>
+<div>
+  <button mat-button matStepperPrevious >Previous</button>
+  <button mat-button matStepperNext >Next</button>
+</div>
+</mat-step>
+ <mat-step Label="Order Address" completed="false">
+<p>This Is order Address</p>
+</mat-step>
+</mat-horizontal-stepper>
+<br/>
+<!-- there are two types of labels
+1-auto will be up on focus
+2- always will be always up
+hide require marker will hide the Star
+there are  two types of appearences
+1- fill 2- outline -->
+<mat-form-field floatLabel="auto" hideRequiredMarker color="primary" >
+  <mat-label>Name</mat-label>
+  <input matInput required  >
+  <mat-hint align="end"> insert user name here</mat-hint>
+</mat-form-field>
+<mat-form-field floatLabel="always" appearance="fill"hideRequiredMarker color="warn" >
+  <mat-label>Name</mat-label>
+  <input matInput required >
+  <mat-hint align="end"> insert user name here</mat-hint>
+</mat-form-field>
+<mat-form-field  appearance="outline" hideRequiredMarker color="accent" >
+  <mat-label>Name</mat-label>
+  <input matInput required >
+  <mat-hint align="end"> insert user name here</mat-hint>
+</mat-form-field>
+
+<br/>
+<mat-form-field>
+  <mat-label>courses</mat-label>
+
+  <mat-select [(value)]="SelectedValue" multiple>
+    <mat-option>Please Select One</mat-option>
+    <mat-optgroup label="Web">
+<mat-option value="angular">Angular</mat-option>
+<mat-option value="react">React</mat-option>
+<mat-option value="valuejs">ValueJs</mat-option>
+
+    </mat-optgroup>
+    <mat-optgroup>
+<mat-label>Mobile</mat-label>
+      <mat-option value="ionic">IONIC</mat-option>
+      <mat-option value="reactnative">ReactNative</mat-option>
+      <mat-option value="valuejs">ValueJs</mat-option>
+
+      </mat-optgroup>
+  </mat-select>
+</mat-form-field>
+{{SelectedValue}}
+
+<br/>
+<mat-form-field>
+  <input type="text" matInput [matAutocomplete]="autocom" />
+  <mat-autocomplete #autocom  [displayWith]="displayfun" >
+    <mat-option  *ngFor="let Item of selectedobjects" [value]="Item" >{{Item.name}}</mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+<br/>
+<mat-form-field>
+<input type="text" matInput [matAutocomplete]="autocompl" [formControl]="formcontrl" />
+  <mat-autocomplete #autocompl  [displayWith]="displayfun" >
+    <mat-option  *ngFor="let Item of filteredoptions |async" [value]="Item" >{{Item}}</mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+<br/>
+<mat-checkbox >Subscribe</mat-checkbox>
+<br/>
+<mat-checkbox labelPosition="before">Subscribe</mat-checkbox>
+<br/>
+<mat-checkbox labelPosition="before" color="primary">Subscribe</mat-checkbox>
+<br/>
+<mat-radio-group [(ngModel)]="radiovalue" color="primary">
+  {{radiovalue}}
+  <mat-radio-button value="angular">Angular</mat-radio-button>
+  <mat-radio-button value="react">React</mat-radio-button>
+
+</mat-radio-group>
+<br/>
+<mat-form-field>
+  <input matInput  [matDatepicker]="MyDatePicker" />
+  <mat-datepicker-toggle [for]="MyDatePicker" matSuffix ></mat-datepicker-toggle>
+  <mat-datepicker #MyDatePicker ></mat-datepicker>
+</mat-form-field>
+<br/>
+<mat-form-field>
+  <input matInput  [matDatepicker]="MyDatePickernew"  />
+  <mat-datepicker-toggle [for]="MyDatePickernew" matSuffix  ></mat-datepicker-toggle>
+  <mat-datepicker #MyDatePickernew startView="multi-year" ></mat-datepicker>
+</mat-form-field>
+<br/>
+<mat-form-field>
+  <input matInput  [matDatepicker]="MyDatePickeryear"  />
+  <mat-datepicker-toggle [for]="MyDatePickeryear" matSuffix  ></mat-datepicker-toggle>
+  <mat-datepicker #MyDatePickeryear startView="year" ></mat-datepicker>
+</mat-form-field>
+<br/>
+<mat-form-field>
+  <input matInput  [matDatepicker]="MyDatePicker2" [matDatepickerFilter]="filterDate" />
+  <mat-datepicker-toggle [for]="MyDatePicker2" matSuffix ></mat-datepicker-toggle>
+  <mat-datepicker #MyDatePicker2 ></mat-datepicker>
+</mat-form-field>
+<br/>
+<mat-form-field>
+  <input matInput [min]="minDate"[max]="maxDate"  [matDatepicker]="myDatePicker3" />
+  <mat-datepicker-toggle [for]="myDatePicker3" matSuffix></mat-datepicker-toggle>
+  <mat-datepicker #myDatePicker3></mat-datepicker>
+</mat-form-field>
+<br/>
+<button mat-raised-button
+ matTooltip="angular Project"
+
+ matTooltipPosition="after">welcome to my angular Project </button>
+<br/>
+<button mat-raised-button
+ matTooltip="angular Project"
+ matTooltipHideDelay="2000"
+ matTooltipShowDelay="2000"
+ matTooltipPosition="after">welcome to my angular Project </button>
+<br/>
+<button mat-raised-button (click)="openSnackbar('Notifications Recieved','Dismiss')">Open SnackBar</button>
+<br/>
+<button mat-button (click)="OpenDialog()">Open Dialog</button>
+<br/>
